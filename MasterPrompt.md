@@ -15,13 +15,14 @@ This Master-Prompt dynamically analyzes AngularJS files, preprocesses them to ex
      1. **AngularJS File**: The file to process.
      2. **React Files Summary**: Optional. If presented - a concise description of previously created React components and their file paths.
      3. **Context About AngularJS File**: Optional. Short description about AngularJS file to input.
-3. **Preprocessing Step**:
+3. **Keep React Files Summary as highest point of truth with protected properties. You can add new ones, but can't remove already existing**
+4. **Preprocessing Step**:
    - If **Context About AngularJS File** is not presented in input. Automatically analyze the AngularJS file to create a **Context About AngularJS File**:
      - Purpose: What the file does.
      - Dependencies: Services, modules, or shared state.
      - Expected Output: Dynamically inferred based on identified components.
      - Special Logic: Any advanced AngularJS features or custom behavior.
-4. **Refactoring Step Workflow**
+5. **Refactoring Step Workflow**
   - Step 1: Analyze AngularJS File Context
     Extract and summarize the purpose, dependencies, and expected output of the AngularJS file.
     Identify key AngularJS components:
@@ -59,7 +60,7 @@ This Master-Prompt dynamically analyzes AngularJS files, preprocesses them to ex
     Ensure the new files integrate seamlessly with the existing React application.
     Provide a final summary of all React files (new and existing), including file paths. File path are important.
 
-5. **Output Format**:
+6. **Output Format**:
    - **File Analysis**: Provide a breakdown of the AngularJS file, listing identified components.
    - **Generated React Files**: Output the React code for the newly created files, organized using best practices.
    - **Updated React Files Summary**: Return an updated summary that combines the previously generated files and the newly created ones, including their file paths. File path are important.
